@@ -21,24 +21,22 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
     <script src="spin.min.js"></script>
     <script src="angular-spinner.min.js"></script>
-    <script>
-        var myapp = angular.module('myapp', ['angularSpinner'])
-            .controller('Ctrl1', function Ctrl1($scope) {
-                $scope.name = 'Spinner Test';
-                $scope.runRedSpinner = true;
-                $scope.runSpinner = true;
-            });
-    </script>
+
 
     <div style="margin-left: 100px" ng-app="myapp">
 
         <div ng-controller="Ctrl1">
             Hello : <span>{{name}}</span>
             <br />
-            <input type="checkbox" ng-model="runSpinner">Toggle Spinner</input>
+            <input type="checkbox" ng-model="runSpinner" />Toggle Spinner
 
-            <input type="checkbox" ng-model="runRedSpinner">Toggle Red Spinner</input>
+            <input type="checkbox" ng-model="runRedSpinner" />Toggle Red Spinner
+
+            <input type="checkbox" ng-click="toggleBigSpinner()" ng-model="runBigSpinner"/>Toggle Big Spinner
             <hr />
+
+            <div id="spinnerDiv" class="centerDiv">
+            </div>
 
             <div ng-show="runSpinner" class="centerDiv">
                 <span ng-show="runSpinner" us-spinner></span>
@@ -99,5 +97,6 @@ spinner. For example
         </div>
 
     </div>
+    <script src="spintest.js"></script>
 </body>
 </html>
