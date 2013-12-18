@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <style>
+        .centerDiv
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            background-color: blue;
+        }
+    </style>
+
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.7.0.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+    <script src="spin.min.js"></script>
+    <script src="angular-spinner.min.js"></script>
+    <script>
+        var myapp = angular.module('myapp', ['angularSpinner'])
+            .controller('Ctrl1', function Ctrl1($scope) {
+                $scope.name = 'Spinner Test';
+                $scope.runRedSpinner = true;
+                $scope.runSpinner = true;
+            });
+    </script>
+
+    <div style="margin-left: 100px" ng-app="myapp">
+
+        <div ng-controller="Ctrl1">
+            Hello : <span>{{name}}</span>
+            <br />
+            <input type="checkbox" ng-model="runSpinner">Toggle Spinner</input>
+
+            <input type="checkbox" ng-model="runRedSpinner">Toggle Red Spinner</input>
+            <hr />
+
+            <div ng-show="runSpinner" class="centerDiv">
+                <span ng-show="runSpinner" us-spinner></span>
+            </div>
+            <br />
+
+            <!--lines: 13, // The number of lines to draw 
+              length: 20, // The length of each line
+              width: 10, // The line thickness
+              radius: 30, // The radius of the inner circle
+              corners: 1, // Corner roundness (0..1)
+              rotate: 0, // The rotation offset
+              direction: 1, // 1: clockwise, -1: counterclockwise
+              color: '#000', // #rgb or #rrggbb or array of colors
+              speed: 1, // Rounds per second
+              trail: 60, // Afterglow percentage
+              shadow: true, // Whether to render a shadow
+              hwaccel: true, // Whether to use hardware acceleration
+              className: 'spinner', // The CSS class to assign to the spinner
+              zIndex: 2e9, // The z-index (defaults to 2000000000)
+              top: 'auto', // Top position relative to parent in px
+              left: 'auto' // Left position relative to parent in px
+              -->
+            <h1>angular-spinner</h1>
+
+            <p>Angular directive to show an animated spinner (using <a href="http://fgnass.github.io/spin.js/">spin.js</a>)</p>
+
+            <p>Copyright (C) 2013, Uri Shaked <a href="mailto:uri@urish.org">uri@urish.org</a>.</p>
+
+            <p>
+                <a href="https://travis-ci.org/urish/angular-spinner">
+                    <img src="https://travis-ci.org/urish/angular-spinner.png?branch=master" alt="Build Status"></a>
+            </p>
+
+            <h2>Usage</h2>
+
+            <p>Include both spin.js and angular-spinner.js in your application.</p>
+
+            <p>Add the module <code>angularSpinner</code> as a dependency to your app module:</p>
+
+            <p>
+                You can now start using the us-spinner directive to display an animated
+spinner. For example
+            </p>
+
+            <p>
+                You can also pass spinner options, for example:
+                <code>html
+&lt;span us-spinner=&quot;{radius:30, width:8, length: 16}&quot;&gt;&lt;/span&gt;
+                </code>
+            </p>
+
+            <p>Possible configuration options are described in the <a href="http://fgnass.github.io/spin.js/">spin.js homepage</a>.</p>
+
+            <div ng-show="runRedSpinner" class="centerDiv">
+                <span us-spinner="{lines: 15, radius:30, speed: 0.5, color:'Red', width:10, length: 16}"></span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
